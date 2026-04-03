@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shavik | 3D Animator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <audio id="bgMusic" src="iris_out.mp3" loop></audio>
+
+    <header>
+        <div class="logo">SHAVIK<span class="chainsaw">.</span>3D</div>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="#home" data-lang="nav_home">Главная</a></li>
+                <li><a href="#portfolio" data-lang="nav_works">Работы</a></li>
+                <li><a href="#about" data-lang="nav_about">Правила</a></li>
+            </ul>
+            <div class="lang-switch">
+                <button onclick="setLang('en')">EN</button>
+                <button onclick="setLang('ru')">RU</button>
+                <button onclick="setLang('ua')">UA</button>
+            </div>
+        </nav>
+    </header>
+
+    <section id="home" class="hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1 data-lang="hero_title">Создаю 3D-миры, которые <span>разрывают</span> шаблоны</h1>
+            <p data-lang="hero_desc">Привет, я Щавик. Мой мотор — Blender. Специализируюсь на 3D-анимации, динамике и жесткой эстетике.</p>
+            <a href="#portfolio" class="btn" data-lang="hero_btn">Смотреть работы</a>
+        </div>
+    </section>
+
+    <div id="pochitaToast" class="pochita-toast">
+        <img src="images/pochita.png" alt="Pochita" class="pochita-img">
+        <div class="pochita-content">
+            <p data-lang="pochita_msg">Гав! Выключить музыку?</p>
+            <button id="muteBtn" class="pochita-btn" data-lang="pochita_yes">Да, вырубай</button>
+            <button id="keepMusicBtn" class="pochita-btn" data-lang="pochita_no">Оставь</button>
+        </div>
+    </div>
+
+    <section id="portfolio" class="portfolio">
+        <h2 data-lang="portfolio_title">Мои проекты</h2>
+        <div class="grid">
+            <div class="card">
+                <img src="images/render1.jpg" alt="3D Render">
+                <div class="card-info">
+                    <h3 data-lang="card_1_title">Анимация персонажа</h3>
+                    <p data-lang="card_desc">Blender / Cycles</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="about">
+        <h2 data-lang="about_title">Условия работы & Заказы</h2>
+        <div class="rules-container">
+            <ul class="rules-list">
+                <li><strong data-lang="rule1_title">1. Четкое ТЗ:</strong> <span data-lang="rule1_desc">Работаю только при наличии понятного технического задания...</span></li>
+                <li><strong data-lang="rule2_title">2. Предоплата:</strong> <span data-lang="rule2_desc">Работа начинается только после внесения предоплаты 50%...</span></li>
+            </ul>
+        </div>
+    </section>
+
+    <footer id="contact">
+        <h2 data-lang="footer_title">Связь со мной</h2>
+        <div class="social-links">
+            <a href="https://t.me/akame0001" target="_blank" class="btn-outline">TG: @akame0001</a>
+            <div class="btn-outline discord-btn">DS: geniy_kieva</div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
