@@ -61,7 +61,7 @@ nav { display: flex; align-items: center; gap: 30px; }
     justify-content: center;
     text-align: center;
     position: relative;
-    background: url('https://i.imgur.com/FAHQ3u3.gif') center/cover no-repeat;
+    background: url('https://media0.giphy.com/media/v1.Y2lkPTZjMDliOTUybzBrYmoycTgzNGNldnRpbHd0MndkeHg2eHh0cnI4bmtsYWV1NHo2ZiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/T4D2epOKsQ3ZUadZ0B/source.gif') center/cover no-repeat;
     padding: 0 20px;
 }
 
