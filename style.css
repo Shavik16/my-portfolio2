@@ -53,7 +53,6 @@ nav { display: flex; align-items: center; gap: 30px; }
     border-color: #ff4500; color: #fff; box-shadow: 0 0 10px #ff4500;
 }
 
-/* ФОН ДЕНДЖИ - Новая ссылка */
 .hero {
     height: 100vh;
     display: flex;
@@ -120,12 +119,36 @@ section h2 { font-size: 2.5rem; text-transform: uppercase; margin-bottom: 50px; 
 .grid { display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; }
 .card { background: #141414; border: 1px solid #333; width: 350px; transition: 0.3s; }
 .card:hover { border-color: #ff4500; box-shadow: 0 0 15px rgba(255, 69, 0, 0.4); transform: translateY(-5px); }
-.card img { width: 100%; height: 200px; object-fit: cover; border-bottom: 2px solid #ff4500; }
+
+/* --- НОВЫЕ СТИЛИ ДЛЯ YOUTUBE ПЛЕЕРОВ --- */
+.video-container {
+    position: relative;
+    padding-bottom: 56.25%; /* Пропорция 16:9 */
+    height: 0;
+    overflow: hidden;
+    max-width: 100%;
+}
+
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+    border-bottom: 2px solid #ff4500;
+    filter: grayscale(1) contrast(1.2); /* Ч/Б фильтр под стиль сайта */
+    transition: filter 0.3s ease;
+}
+
+.video-card:hover .video-container iframe {
+    filter: grayscale(0) contrast(1); /* Видео становится цветным при наведении мыши */
+}
+
 .card-info { padding: 20px; }
 .card-info h3 { color: #fff; text-transform: uppercase; font-size: 1.1rem; margin-bottom: 5px;}
 .card-info p { color: #888; }
 
-/* ПРАВИЛА ЗАКАЗОВ (ОБО МНЕ) */
 .about { background: #080808; border-top: 1px solid #222; }
 .rules-container {
     max-width: 800px;
@@ -146,15 +169,10 @@ footer { background: #050505; padding: 60px 20px; border-top: 2px solid #ff4500;
 .btn-outline { padding: 12px 25px; border: 2px solid #ff4500; color: #ff4500; text-decoration: none; font-weight: bold; font-size: 1.1rem; transition: 0.3s; cursor: pointer; display: inline-block; }
 .btn-outline:hover { background: #ff4500; color: #fff; }
 
-
-
-
-
-/* --- ПОЧИТА TOAST (Всплывающее окно) --- */
 .pochita-toast {
     position: fixed;
     bottom: 30px;
-    right: -500px; /* Изначально спрятан за краем экрана */
+    right: -500px; 
     background: #141414;
     border: 2px solid #ff4500;
     padding: 15px 25px 15px 15px;
@@ -164,132 +182,37 @@ footer { background: #050505; padding: 60px 20px; border-top: 2px solid #ff4500;
     z-index: 9999;
     box-shadow: -5px 5px 20px rgba(255, 69, 0, 0.4);
     border-radius: 10px 0 0 10px;
-    transition: right 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Эффект пружинки */
+    transition: right 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
 }
 
-/* Класс, который скрипт добавит через 4 сек */
-.pochita-toast.show {
-    right: 0; 
-}
+.pochita-toast.show { right: 0; }
+.pochita-img { width: 80px; height: auto; filter: drop-shadow(0 0 5px #ff4500); }
+.pochita-content p { color: #fff; font-weight: bold; margin-bottom: 10px; font-size: 1.1rem; }
+.pochita-btn { background: none; border: 1px solid #ff4500; color: #ff4500; padding: 5px 15px; cursor: pointer; font-weight: bold; transition: 0.3s; margin-right: 10px; }
+.pochita-btn:hover { background: #ff4500; color: #fff; }
 
-.pochita-img {
-    width: 80px; /* Размер Почиты */
-    height: auto;
-    filter: drop-shadow(0 0 5px #ff4500);
-}
-
-.pochita-content p {
-    color: #fff;
-    font-weight: bold;
-    margin-bottom: 10px;
-    font-size: 1.1rem;
-}
-
-.pochita-btn {
-    background: none;
-    border: 1px solid #ff4500;
-    color: #ff4500;
-    padding: 5px 15px;
-    cursor: pointer;
-    font-weight: bold;
-    transition: 0.3s;
-    margin-right: 10px;
-}
-
-.pochita-btn:hover {
-    background: #ff4500;
-    color: #fff;
-}
-
-
-/* =========================================
-   МОБИЛЬНАЯ ВЕРСИЯ (АДАПТИВНОСТЬ)
-   ========================================= */
 @media (max-width: 768px) {
-    /* Шапка сайта: выстраиваем логотип и меню в столбик */
-    header {
-        flex-direction: column;
-        padding: 15px 5%;
-        gap: 15px;
-    }
-
-    nav {
-        flex-direction: column;
-        gap: 15px;
-    }
-
-    .nav-links {
-        gap: 15px;
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-
-    /* Главный экран: уменьшаем огромный текст */
-    .hero h1 {
-        font-size: 2.3rem;
-        margin-top: 60px; /* Отступ от шапки */
-    }
-
-    .hero p {
-        font-size: 1rem;
-        padding: 0 10px;
-    }
-
-    /* Секции и карточки: делаем отступы поменьше */
-    section {
-        padding: 80px 5% 40px;
-    }
-
-    section h2 {
-        font-size: 2rem;
-        margin-bottom: 30px;
-    }
-
-    .card {
-        width: 100%; /* Карточки занимают всю ширину экрана */
-        max-width: 400px;
-    }
-
-    /* Блок с правилами: убираем лишние поля */
-    .rules-container {
-        padding: 20px;
-    }
-
-    .rules-list li {
-        font-size: 1rem;
-    }
-
-    /* Всплывающий Почита: делаем так, чтобы он выезжал СНИЗУ, как шторка */
+    header { flex-direction: column; padding: 15px 5%; gap: 15px; }
+    nav { flex-direction: column; gap: 15px; }
+    .nav-links { gap: 15px; flex-wrap: wrap; justify-content: center; }
+    .hero h1 { font-size: 2.3rem; margin-top: 60px; }
+    .hero p { font-size: 1rem; padding: 0 10px; }
+    section { padding: 80px 5% 40px; }
+    section h2 { font-size: 2rem; margin-bottom: 30px; }
+    .card { width: 100%; max-width: 400px; }
+    .rules-container { padding: 20px; }
+    .rules-list li { font-size: 1rem; }
+    
     .pochita-toast {
-        right: 0;
-        left: 0;
-        bottom: -300px; /* Прячем вниз за экран */
-        width: 100%;
-        border-radius: 15px 15px 0 0; /* Закругляем только верх */
-        flex-direction: column; /* Элементы в столбик */
-        text-align: center;
-        padding: 20px;
-        transition: bottom 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        right: 0; left: 0; bottom: -300px; width: 100%;
+        border-radius: 15px 15px 0 0; flex-direction: column; text-align: center;
+        padding: 20px; transition: bottom 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     }
-
-    .pochita-toast.show {
-        bottom: 0; /* Выпрыгивает снизу */
-        right: 0; 
-    }
-
-    .pochita-btn {
-        margin: 10px 5px 0;
-        width: 80%;
-    }
+    .pochita-toast.show { bottom: 0; right: 0; }
+    .pochita-btn { margin: 10px 5px 0; width: 80%; }
 }
 
-/* Очень маленькие экраны (старые телефоны) */
 @media (max-width: 480px) {
-    .hero h1 {
-        font-size: 1.8rem;
-    }
-    .lang-switch button {
-        padding: 5px 8px;
-        font-size: 0.9rem;
-    }
+    .hero h1 { font-size: 1.8rem; }
+    .lang-switch button { padding: 5px 8px; font-size: 0.9rem; }
 }
