@@ -23,7 +23,7 @@ document.body.addEventListener('scroll', startMusic, { once: true });
 // Через 4 секунды после открытия сайта показываем Почиту
 setTimeout(() => {
     pochitaToast.classList.add('show');
-}, 4000);
+}, 8000);
 
 // Кнопка "Вырубай"
 muteBtn.addEventListener('click', () => {
